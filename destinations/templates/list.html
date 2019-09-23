@@ -6,11 +6,27 @@
 <br>
 <div class="row">
   {% for destination in destinations %}
+<div class="col-sm-12 col-md-6 col-lg-3 d-flex align-items-stretch">
+<div class="card" style="width: 18rem;">
+  <img class="card-img-top " src="{{destination.pretty_picture.url}}" alt="">
+  <div class="card-body d-flex flex-column ">
+    <h5 class="card-title">{{destination.name}}</h5>
+    <p class="card-text">{{destination.activities}}</p>
+    <a href="{% url 'destination-detail' destination.id %}"class="btn my-btn-colorful btn-block text-truncate mt-auto">Read More</a>
+
+  </div>
+</div>
+</div>
+  {% endfor %}
+</div>
+{% endblock content %}
+<!--<a href="{% url 'destination-detail' destination.id %}"class="btn btn-primary align-self-end">Go somewhere</a>-->
+
+  {% comment %} 
+    
   <a href="{% url 'destination-detail' destination.id %}">
     <img src="{{destination.pretty_picture.url}}" />
     <p>{{destination.name}}</p>
     <p>{{destination.activities}}</p>
   </a>
-  {% endfor %}
-</div>
-{% endblock content %}
+  {% endcomment %}
